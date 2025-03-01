@@ -8,9 +8,9 @@ def encode_image(image_path):
 
 def extract_code(text):
     # Pattern to match the code block
-    pattern = r'```oython\s+(.*?)\s+```'
+    pattern = r'```python\s+(.*?)\s+```'
     # Extract the code
-    match re.search(pattern, text, re.DOTALL)
+    match = re.search(pattern, text, re.DOTALL)
     if match:
         return match.group(1)
     return None
