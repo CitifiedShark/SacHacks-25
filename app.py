@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sadlfsdbkg'
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
 
-# Initialize the database we'll use to store the name:quantity:expiration date of food
+# Initialize the database we'll use to store the user:name:quantity:expiration date of food
 def initialize_database():
     connector = sqlite3.connect('thefridge.db')
     c = connector.cursor()
@@ -76,12 +76,14 @@ def item_add():
     connector.commit()
     connector.close()
 
+    return jsonify({"status": "success"})
+
 # Route to retrieve all food items from the database and return them as JSON
 # @app.route('/get_items', methods=['GET'])
 def get_items():
     connector = sqlite3.connect("thefridge.db")
     c = connector.cursor()
-    c.execute("SELECT * from food")
+    c.execute("SELECT * FROM food")
     items = c.fetchall()
     connector.close()
 
