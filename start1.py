@@ -1,6 +1,7 @@
 from openai import OpenAI
+client = OpenAI(api_key = "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")
 
-client= OpenAI(api_key = "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")
+
 
 response = client.chat.completions.create(
     model='gpt-4-vision-preview', # model that we are using
@@ -16,7 +17,7 @@ Keep the response extremely concise and strictly adhere to the format.""" },
                 {
                     'type': 'image_url',
                     'image_url': {
-                        'url': '', # paste img url here
+                        'url': photo, # paste img url here
                     },
                 },
             ],   
@@ -26,9 +27,11 @@ Keep the response extremely concise and strictly adhere to the format.""" },
     max_tokens=300,
 )
 
+
 # print the response
 print('Completion Tokens:', response.usage.completion_tokens)
 print('Prompt Tokens:', response.usage.prompt_tokens)
 print('Total Tokens:', response.usage.total_tokens)
 print(response.choices[0].message)
 print(response.choices[0].message.content)
+

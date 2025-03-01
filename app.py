@@ -8,6 +8,7 @@ from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileRequired, FileField
 from wtforms import SubmitField
+from start1 import make_ai_call
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sadlfsdbkg'
@@ -50,15 +51,22 @@ def getfilename(filename):
 
 
 @app.route("/upload_items", methods=['POST', 'GET'])
+
 def upload_image():
     form = UploadForm()
     if form.validate_on_submit():
         filename = photos.save(form.photo.data)
         file_url = url_for('get_file', filename=filename)
+        image_components = make_ai_call(file_url).split(':')
+        connector = sqlite3.connect('thefridge.db') 
+        c = connector.cursor()
+        ## Convert List into record for Sql data base ??? 
+        c.execute("")
     else:
         file_url = None
+    
     ## Doesnt do anythin
-    return None
+    return
 
 
 # @app.route("/add_items", methods=['POST'])
