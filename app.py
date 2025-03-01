@@ -6,7 +6,6 @@ from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileRequired, FileField
 from wtforms import SubmitField
-from start1 import make_ai_call
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sadlfsdbkg'
@@ -16,7 +15,7 @@ app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
 def initialize_database():
     connector = sqlite3.connect('thefridge.db')
     c = connector.cursor()
-    c.execute('''CREATE TABLE IF NON EXISTS 
+    c.execute('''CREATE TABLE IF NOT EXISTS 
         food (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, expiration DATE)''')
     connector.commit()
     connector.close()
@@ -26,7 +25,7 @@ initialize_database()
 # Route to the homepage
 @app.route("/")
 def home():
-    return render_template(' ')
+    return render_template('capture.html')
 
 ## Create a FlaskForm composed for uploading
 photos = UploadSet('photos', IMAGES)
@@ -60,7 +59,7 @@ def upload_image():
         c.execute("")
     else:
         file_url = None
-    return
+    return render_template()
 
 # Route to add food items to the database
 # @app.route("/add_items", methods=['POST'])
