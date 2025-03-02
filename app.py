@@ -9,8 +9,6 @@ from index import *
 import base64
 import os
 
-
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sadlfsdbkg'
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
@@ -25,7 +23,7 @@ class UploadForm(FlaskForm):
     submit = SubmitField('Upload Photo')
 
 # Initialize the database we'll use to store the user:name:quantity:expiration date of food
-"""def initialize_database():
+def initialize_database():
     connector = sqlite3.connect('thefridge.db')
     c = connector.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS 
@@ -33,7 +31,7 @@ class UploadForm(FlaskForm):
     connector.commit()
     connector.close()
 send_from_directory
-initialize_database()"""
+initialize_database()
 
 # Route to the homepage
 @app.route("/")
@@ -47,6 +45,18 @@ def home():
 @app.route("/uploads/<filename>", methods=['GET'])
 def getfilename(filename):
     return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
+
+# Fetch the items in the fridge
+@app.route('/get_items', methods=['GET'])
+def get_items():
+    connector = sqlite3.connect('thefridge.db')
+    c = connector.cursor()
+    c.execute("SELECT * FROM food")
+    items = c.fetchall()
+    connector.close()
+    print("DEBUG: Fetched items:", itmes)
+    
+    return jsonify({"items": items})
 
 # Route to upload images and store extracted information in the database
  
