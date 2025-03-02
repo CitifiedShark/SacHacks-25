@@ -3,6 +3,10 @@
 ## Overview
 Cuisine is a web app that allows users to upload pictures of their fridge for AI insights into what recipes they could make and other possible health advice
 
+## Devpost
+Check out our devpost submission!
+https://devpost.com/software/cuisine-jgekc5#updates
+
 ## Instructions
 1. Installing and Running
    - Set OpenAI api_key in start1.py
