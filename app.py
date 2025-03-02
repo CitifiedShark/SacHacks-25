@@ -9,6 +9,8 @@ from index import *
 import base64
 import os
 
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sadlfsdbkg'
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
@@ -41,14 +43,13 @@ def home():
 ## Create a FlaskForm composed for uploading
 
 
-
 # Route to retrieve uploaded files by filename
-@app.route("/uploads/<filename>")
+@app.route("/uploads/<filename>", methods=['GET'])
 def getfilename(filename):
     return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
 
 # Route to upload images and store extracted information in the database
-
+ 
 @app.route("/upload_items", methods=['POST', 'GET'])
 def upload_image():
     form = UploadForm()
