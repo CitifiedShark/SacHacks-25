@@ -1,5 +1,5 @@
 from openai import OpenAI
-client = OpenAI(api_key = "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")
+client = OpenAI(api_key = "INSERT YOUT API KEY")
 
 
 def fetch_analysis(photo):
