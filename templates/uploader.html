@@ -10,7 +10,7 @@
         <title>Uploader</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -32,9 +32,9 @@
                             <div class="col-auto">
                                 {{ form.photo(class="form-control")}}
                             </div>
-                        <div class="col-auto">
-                            {{ form.submit(class="btn btn-success")}}
-                        </div>
+                            <div class="col-auto">
+                                {{ form.submit(class="btn btn-success")}}
+                            </div>
                         </div>
                     
 
@@ -49,7 +49,7 @@
             <div>
                 <p>{{file_url}}</p>
                 <img src="{{file_url}}" alt="Uploaded Image" style="max-width: 300px;">
-                <a href="http://127.0.0.1:5000{{file_url}}"><button>CLICK TO GO TO UPLOADED FILE </button> </a>
+                <a href="http://127.0.0.1:5000{{file_url}}"><button class="btn">CLICK TO GO TO UPLOADED FILE </button> </a>
             </div>
         </div>
         {% endif %}
