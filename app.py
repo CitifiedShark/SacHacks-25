@@ -19,7 +19,7 @@ def initialize_database():
         food (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, expiration DATE)''')
     connector.commit()
     connector.close()
-
+send_from_directory
 initialize_database()
 
 # Route to the homepage
@@ -33,7 +33,7 @@ configure_uploads(app, photos)
 
 class UploadForm(FlaskForm):
     photo = FileField(
-        validator=[
+        validators=[
             FileAllowed(photos, 'You must upload an image'),
             FileRequired('Please upload a file')
         ]
@@ -52,14 +52,13 @@ def upload_image():
     if form.validate_on_submit():
         filename = photos.save(form.photo.data)
         file_url = url_for('get_file', filename=filename)
-        image_components = make_ai_call(file_url).split(':')
         connector = sqlite3.connect('thefridge.db') 
         c = connector.cursor()
         # Convert List into record for Sql data base ??? 
         c.execute("")
     else:
         file_url = None
-    return render_template()
+    return render_template('uploader.html', form=form, file_url=file_url)
 
 # Route to add food items to the database
 # @app.route("/add_items", methods=['POST'])
