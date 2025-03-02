@@ -22,12 +22,14 @@ While base level, we were able to familiarize ourselves with the basics of the F
 Cuisine has a bright future, and we plan on adding more of the features that are in our mockup. Our first step would be to implement a way for users to scan/upload pictures of multiple items and find recipes that would utilize them.
 
 ## Additional Links
-Check out our devpost submission!
-https://devpost.com/software/cuisine-jgekc5#updates
-Check out the Figma Design!
-https://www.figma.com/proto/7LJvg1UvuHBdSpRDmFG1qf/Website-of-architects---free-website-(Community)?node-id=449-49&p=f&t=5WI7eb200mRrW8DE-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1
-Check out the Demo!
-https://youtu.be/Our304t_b9s
+- Check out our devpost submission!
+- https://devpost.com/software/cuisine-jgekc5#updates
+
+- Check out the Figma Design!
+- https://www.figma.com/proto/7LJvg1UvuHBdSpRDmFG1qf/Website-of-architects---free-website-(Community)?node-id=449-49&p=f&t=5WI7eb200mRrW8DE-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1
+
+- Check out the Demo!
+- https://youtu.be/Our304t_b9s
 
 ## Instructions
 1. Installing and Running
