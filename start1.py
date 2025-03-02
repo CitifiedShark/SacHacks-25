@@ -12,7 +12,7 @@ def fetch_analysis(photo):
                 # ask our question (type out text)
                 # output is text
                 {'type': 'text', 'text':  """Analyze the provided image and identify the food item, 
-then give a list of 3 different recipes that you could make with it. If you can, also include some of the health benefits that the item possible has. When you give the recipes, first name the recipe name, then give some basic steps to making it When giving you answer, return it as a long string/paragraph, with each segement (name, recipes, benefits) being separated by a colon
+then give a list of 3 different recipes that you could make with it. If you can, also include some of the health benefits that the item possible has. When you give the recipes, first name the recipe name, then give some basic steps to making it When giving you answer, return it as a long string/paragraph, with each segement (name, recipes, benefits) being separated by a semicolon
 Keep the response mostly concise and strictly adhere to the format.""" },
                 {
                     'type': 'image_url',

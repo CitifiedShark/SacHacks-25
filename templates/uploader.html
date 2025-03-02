@@ -56,9 +56,12 @@
 
         {% if analysis_result and ':' in analysis_result %}
         <div class="result">
-            <p><strong>Food Name:</strong> {{ analysis_result.split(':')[0] }}</p>
-            <p><strong>Recipes:</strong> {{ analysis_result.split(':')[1] }}</p>
-            <p><strong>Health Benefits:</strong> {{ analysis_result.split(':')[2] }}</p>
+            <p><strong>Food Name:</strong> {{ analysis_result.split(';')[0] }}</p>
+            <p><strong>Recipes:</strong> </p>
+            <p>1. {{ analysis_result.split(';')[1] }}</p>
+            <p>2. {{ analysis_result.split(';')[2] }}</p>
+            <p>3. {{ analysis_result.split(';')[3] }}</p>
+            <p><strong>Health Benefits:</strong> {{ analysis_result.split(';')[4] }}</p>
         </div>
         {% else %}
         <p class="error">Error: Unable to process the analysis result.</p>
