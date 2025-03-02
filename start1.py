@@ -4,7 +4,7 @@ client = OpenAI(api_key = "sk-proj-xNpIW9bnFV4Zat5ahBhBSBeToexf2WQma7Qwo5XVsLRY4
 
 def fetch_analysis(photo):
     response = client.chat.completions.create(
-    model='gpt-3.5-turbo', # model that we are using
+    model='gpt-4o', # model that we are using
     messages=[
         {
             'role': 'user', # user is making request
@@ -17,7 +17,7 @@ Keep the response extremely concise and strictly adhere to the format.""" },
                 {
                     'type': 'image_url',
                     'image_url': {
-                        'url': 'data' + photo, # paste img url here
+                        'url': f"data:image/jpeg;base64,{photo}", # paste img url here
                     },
                 },
             ],   
@@ -26,7 +26,9 @@ Keep the response extremely concise and strictly adhere to the format.""" },
     # maximum strings provided based on prompt length
     max_tokens=300,
 )
+    print("DEBUG: OpenAI API Response:", response)
     return response.choices[0].message.content
+
 
 
 # print the response

@@ -47,10 +47,32 @@
         <div>
             <h3> IMAGE UP !!</h3>
             <div>
-                {{file_url}}
-                <a href="http://127.0.0.1:5000{{file_url}}"><button>CLICK TO GO TO UPLOADER </button> </a>
+                <p>{{file_url}}</p>
+                <img src="{{file_url}}" alt="Uploaded Image" style="max-width: 300px;">
+                <a href="http://127.0.0.1:5000{{file_url}}"><button>CLICK TO GO TO UPLOADED FILE </button> </a>
             </div>
         </div>
+        {% endif %}
+
+        {% if analysis_result %}
+        <div>
+            <h2>Analysis Result</h2>
+            <div class="result">
+                <p><strong>Food Name:</strong>{{ analysis_result.split(':')[0]}}</p>
+                <p><strong>Quantity:</strong>{{analysis_result.split(':')[1]}}</p>
+                <p><strong>Expiration (in days):</strong> {{analysis_result.split(':')[2]}}</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if analysis_result and ':' in analysis_result %}
+        <div class="result">
+            <p><strong>Food Name:</strong> {{ analysis_result.split(':')[0] }}</p>
+            <p><strong>Quantity:</strong> {{ analysis_result.split(':')[1] }}</p>
+            <p><strong>Expiration (in days):</strong> {{ analysis_result.split(':')[2] }}</p>
+        </div>
+        {% else %}
+        <p class="error">Error: Unable to process the analysis result.</p>
         {% endif %}
     </body>
 </html>
