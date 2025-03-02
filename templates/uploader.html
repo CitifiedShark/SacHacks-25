@@ -54,17 +54,6 @@
         </div>
         {% endif %}
 
-        {% if analysis_result %}
-        <div>
-            <h2>Analysis Result</h2>
-            <div class="result">
-                <p><strong>Food Name:</strong>{{ analysis_result.split(':')[0]}}</p>
-                <p><strong>Quantity:</strong>{{analysis_result.split(':')[1]}}</p>
-                <p><strong>Expiration (in days):</strong> {{analysis_result.split(':')[2]}}</p>
-            </div>
-        </div>
-        {% endif %}
-
         {% if analysis_result and ':' in analysis_result %}
         <div class="result">
             <p><strong>Food Name:</strong> {{ analysis_result.split(':')[0] }}</p>
@@ -74,5 +63,22 @@
         {% else %}
         <p class="error">Error: Unable to process the analysis result.</p>
         {% endif %}
+
+        {% if items %}
+        <h2>Food Items in Fridge</h2>
+        <ul>
+            {% for item in items %}
+            <li>
+                <strong>Food Name:</strong> {{ item[2] }}<br>
+                <strong>Quantity:</strong> {{ item[3] }}<br>
+                <strong>Expiration:</strong> {{ item[4] }}<br>
+                <strong>Image Path:</strong> {{ item[5] }}<br>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No food items found.</p>
+    {% endif %}
+
     </body>
 </html>
