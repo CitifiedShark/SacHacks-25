@@ -57,8 +57,8 @@
         {% if analysis_result and ':' in analysis_result %}
         <div class="result">
             <p><strong>Food Name:</strong> {{ analysis_result.split(':')[0] }}</p>
-            <p><strong>Quantity:</strong> {{ analysis_result.split(':')[1] }}</p>
-            <p><strong>Expiration (in days):</strong> {{ analysis_result.split(':')[2] }}</p>
+            <p><strong>Recipes:</strong> {{ analysis_result.split(':')[1] }}</p>
+            <p><strong>Health Benefits:</strong> {{ analysis_result.split(':')[2] }}</p>
         </div>
         {% else %}
         <p class="error">Error: Unable to process the analysis result.</p>

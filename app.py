@@ -54,7 +54,7 @@ def get_items():
     c.execute("SELECT * FROM food")
     items = c.fetchall()
     connector.close()
-    print("DEBUG: Fetched items:", itmes)
+    print("DEBUG: Fetched items:", items)
     
     return jsonify({"items": items})
 
