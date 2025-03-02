@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request, jsonify, send_from_directory, url_for
+from flask import Flask, render_template, jsonify, send_from_directory, url_for
 from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileRequired, FileField
@@ -10,7 +10,7 @@ import base64
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'sadlfsdbkg'
+app.config['SECRET_KEY'] = 'super_secret_key'
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
 
 photos = UploadSet('photos', IMAGES)
