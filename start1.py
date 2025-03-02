@@ -2,9 +2,9 @@ from openai import OpenAI
 client = OpenAI(api_key = "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")
 
 
-
-response = client.chat.completions.create(
-    model='gpt-4-vision-preview', # model that we are using
+def fetch_analysis(photo):
+    response = client.chat.completions.create(
+    model='gpt-3.5-turbo', # model that we are using
     messages=[
         {
             'role': 'user', # user is making request
@@ -17,7 +17,7 @@ Keep the response extremely concise and strictly adhere to the format.""" },
                 {
                     'type': 'image_url',
                     'image_url': {
-                        'url': photo, # paste img url here
+                        'url': 'data' + photo, # paste img url here
                     },
                 },
             ],   
@@ -26,12 +26,13 @@ Keep the response extremely concise and strictly adhere to the format.""" },
     # maximum strings provided based on prompt length
     max_tokens=300,
 )
+    return response.choices[0].message.content
 
 
 # print the response
-print('Completion Tokens:', response.usage.completion_tokens)
+"""print('Completion Tokens:', response.usage.completion_tokens)
 print('Prompt Tokens:', response.usage.prompt_tokens)
 print('Total Tokens:', response.usage.total_tokens)
 print(response.choices[0].message)
-print(response.choices[0].message.content)
+print(response.choices[0].message.content)"""
 
