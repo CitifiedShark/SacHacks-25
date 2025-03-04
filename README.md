@@ -33,6 +33,11 @@ Cuisine has a bright future, and we plan on adding more of the features that are
 
 ## Instructions
 1. Installing and Running
+   - Install requirements.txt (all libraries needed)
    - Set OpenAI api_key in start1.py
    - Run using python
-2. Upload an image
+      - Type python3 app.py in UNIX
+3. Open in your browser (local port)
+4. Upload an image
+
+
